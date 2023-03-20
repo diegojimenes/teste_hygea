@@ -1,0 +1,10 @@
+{
+  "workspaces": [
+    "client",
+    "api"
+  ],
+  "name": "teste-hygea",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true
+}

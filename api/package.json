@@ -11,8 +11,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/mongoose": "^5.11.97",
     "tsup": "^6.7.0",
     "tsx": "^3.12.6",
     "typescript": "^5.0.2"
+  },
+  "dependencies": {
+    "mongoose": "^7.0.2",
+    "yup": "^1.0.2"
   }
 }

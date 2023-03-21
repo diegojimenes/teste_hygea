@@ -1,4 +1,7 @@
-import mongoose from "mongoose";
+import * as dotenv from "dotenv"
+import mongoose from "mongoose"
+
+dotenv.config()
 
 mongoose.connect(process.env.DATA_BASE ?? '')
   .then(() => {

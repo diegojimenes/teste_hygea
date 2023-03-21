@@ -18,4 +18,6 @@ export class Movies extends BaseModel {
   });
 
   public model = this.dataBase.model('Movies', this.schema)
+
+  public query = this.model
 }

@@ -1,0 +1,99 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "teste hygea",
+    "description": "teste hygea",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "tags": [
+    {
+      "name": "Movies",
+      "description": "API for movies list"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/send/movies": {
+      "post": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "update database with new movies",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "$ref": "#/definitions/movies"
+            }
+          }
+        }
+      }
+    },
+    "/list/movies": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "page",
+          "required": false,
+          "description": "number of page"
+        }
+      ],
+      "get": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "list paginated movies",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "$ref": "#/definitions/movies"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "movies": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "banner": {
+          "type": "string"
+        },
+        "description": {
+          "type": "boolean"
+        },
+        "director": {
+          "type": "string"
+        },
+        "producer": {
+          "type": "string"
+        },
+        "average": {
+          "type": "number"
+        },
+        "providers": {
+          "type": "string"
+        },
+        "id": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

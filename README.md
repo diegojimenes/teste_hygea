@@ -14,3 +14,7 @@ npm run dev
 ``bash
 npm run dev
 ``
+
+documentação da api
+
+http://localhost:3000/swagger

@@ -1,5 +1,4 @@
 import { useEffect } from "react"
-
 import listMovies from "../../api/listMovies"
 import Button from "../../components/button"
 import { i_movies, save } from "../../redux/reducers/movies"

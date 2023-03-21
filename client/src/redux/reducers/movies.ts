@@ -15,14 +15,14 @@ export const moviesSlice = createSlice({
   name: 'movies',
   initialState,
   reducers: {
-    save: (state, action: PayloadAction<i_movies[]>) => {
-      state = action.payload
+    save: (_, action: PayloadAction<i_movies[]>) => {
+      return action.payload
     },
     paginate: (state, action: PayloadAction<i_movies[]>) => {
-      state = [...state, ...action.payload]
+      return [...state, ...action.payload]
     },
-    clear: (state) => {
-      state = []
+    clear: () => {
+      return []
     },
   },
 })

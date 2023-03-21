@@ -8,8 +8,8 @@ const port = 3000
 
 dotenv.config()
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 app.use(router)
 
 app.listen(port, () => {

@@ -6,8 +6,7 @@ export class ListMovies {
   async execute(req: express.Request, res: express.Response) {
     try {
       const movies = await this.getMoviesApi.action(parseInt(`${req.query.page}`))
-
-      return res.send(movies)
+      return res.json(movies)
     } catch (err) {
       return res.status(500).send(err)
     }

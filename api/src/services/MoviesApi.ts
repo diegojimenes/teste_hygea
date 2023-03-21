@@ -3,11 +3,6 @@ import { i_movies } from "../repositories/mongoDb/models/movie"
 
 const discover_api = (process.env.MOVIES_API ?? '').replace('${end-point}', 'discover/movie')
 
-// title: string
-// banner: string
-// description: string
-// director: string
-// producer: string
 export class MovieApi {
   async getMovies() {
     const list = await axios.get(discover_api)
@@ -23,9 +18,11 @@ export class MovieApi {
       id,
       title,
       overview,
-      poster_path
+      poster_path,
+      vote_average,
     }: any) => {
       const producerAndDirector = await this.getProducerAndDirector(id)
+      const wathcProviders = await this.getWatchProviders(id)
 
       movieList.push({
         title: title,
@@ -33,6 +30,9 @@ export class MovieApi {
         description: overview,
         director: producerAndDirector.director.name,
         producer: producerAndDirector.producer.name,
+        average: vote_average,
+        providers: wathcProviders,
+        id: id
       })
     }))
 
@@ -68,5 +68,11 @@ export class MovieApi {
     })
 
     return result
+  }
+
+  async getWatchProviders(id: number) {
+    const watch_providers_api = (process.env.MOVIES_API ?? '').replace('${end-point}', `/movie/${id}/watch/providers`)
+    const watchProviders = await axios.get(watch_providers_api)
+    return watchProviders.data.results.BR ?? {}
   }
 }

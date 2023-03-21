@@ -2,11 +2,14 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface i_movies {
+  _id?: string
   title: string
   banner: string
   description: string
   director: string
   producer: string
+  average: number
+  providers: string
 }
 
 const initialState: i_movies[] = []

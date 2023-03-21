@@ -6,6 +6,9 @@ export interface i_movies {
   description: string
   director: string
   producer: string
+  average: number
+  providers: string
+  id?: string
 }
 
 export class Movies extends BaseModel {
@@ -14,7 +17,10 @@ export class Movies extends BaseModel {
     banner: 'string',
     description: 'string',
     director: 'string',
-    producer: 'string'
+    producer: 'string',
+    average: 'number',
+    providers: 'string',
+    id: { type: 'string', unique: true }
   });
 
   public model = this.dataBase.model('Movies', this.schema)

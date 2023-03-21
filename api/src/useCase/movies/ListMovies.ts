@@ -1,14 +1,14 @@
 import express from "express"
-import { GetMovies } from "../../repositories/moviesRepo/getMovies"
+import { GetMovies } from "../../repositories/moviesRepo/GetMovies"
 
 export class ListMovies {
+  private getMoviesApi = new GetMovies()
   async execute(req: express.Request, res: express.Response) {
     try {
-      const movies = await new GetMovies().action(parseInt(req.query.page))
+      const movies = await this.getMoviesApi.action(parseInt(`${req.query.page}`))
 
       return res.send(movies)
     } catch (err) {
-      console.log(err)
       return res.status(500).send(err)
     }
   }
